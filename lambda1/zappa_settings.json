@@ -1,0 +1,22 @@
+{
+    "scrapping": {
+        "app_function": "lambda_function.lambda_handler",
+        "aws_region": "us-east-1",
+        "exclude": [
+            "concurrent"
+        ],
+        "profile_name": "default",
+        "project_name": "lambda1",
+        "runtime": "python3.10",
+        "s3_bucket": "zappa-7gqp0lcb1",
+        "keep_warm": false,
+        "apigateway_enabled": false,
+        "manage_roles": false,
+        "role_name": "LabRole",
+        "events": [{
+            "function": "scraper_lambda.descargar_paginas",
+            "expression": "cron(0 9 ? * MON *)"
+        }]
+
+    }
+}

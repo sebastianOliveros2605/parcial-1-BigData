@@ -1,0 +1,32 @@
+{
+    "process_data": {
+        "app_function": "app.procesar_html",
+        "aws_region": "us-east-1",
+        "exclude": [
+            "boto3",
+            "dateutil",
+            "botocore",
+            "s3transfer",
+            "concurrent"
+        ],
+        "profile_name": "default",
+        "project_name": "lambda2",
+        "runtime": "python3.10",
+        "s3_bucket": "zappa-qjecrf9eh",
+        "keep_warm": false,
+        "apigateway_enabled": false,
+        "manage_roles": false,
+        "role_name": "LabRole",
+        "events": [
+            {   
+                "function":"app.procesar_html",
+                "event_source": {
+                    "arn": "arn:aws:s3:::landingcasas",
+                    "events": [
+                        "s3:ObjectCreated:*"
+                    ]
+                }
+            }
+        ]
+    }
+}

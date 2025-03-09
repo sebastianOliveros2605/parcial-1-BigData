@@ -1,3 +1,10 @@
 env/
+lambda1/env1/
+lambda2/env2/
 *cache*
 *pyc
+# Ignorar caché de Python y pytest
+__pycache__/
+*.pyc
+*.pyo
+.pyt est_cache/
