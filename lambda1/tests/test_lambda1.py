@@ -1,7 +1,7 @@
-import unittest
-from unittest.mock import patch, MagicMock
-import sys
 import os
+import sys
+import unittest
+from unittest.mock import MagicMock, patch
 
 # Agregar el directorio raíz de lambda1 al sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -15,7 +15,7 @@ class TestLambdaScraping(unittest.TestCase):
     @patch("requests.get")  # Mock para evitar llamadas reales a la web
     def test_lambda_handler_success(self, mock_requests_get, mock_boto3_client):
         """Prueba que el Lambda maneja correctamente 10 descargas exitosas y las guarda en S3"""
-        
+
         # Simula una respuesta de requests.get con código 200 y HTML falso
         mock_response = MagicMock()
         mock_response.status_code = 200
@@ -83,6 +83,7 @@ class TestLambdaScraping(unittest.TestCase):
 
         # Verifica que S3 intentó guardar 10 archivos (aunque falló)
         self.assertEqual(mock_s3.put_object.call_count, 10)
+
 
 if __name__ == "__main__":
     unittest.main()
