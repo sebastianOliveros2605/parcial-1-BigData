@@ -1,8 +1,8 @@
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import os
 import sys
 import unittest
 from unittest.mock import MagicMock, patch
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from lambda_function import lambda_handler  # Ahora sí debería encontrarlo
 
 
