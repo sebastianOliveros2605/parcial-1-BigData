@@ -2,11 +2,9 @@ import os
 import sys
 import unittest
 from unittest.mock import MagicMock, patch
-
-# Agregar el directorio raíz de lambda1 al sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
 from lambda_function import lambda_handler  # Ahora sí debería encontrarlo
+
 
 
 class TestLambdaScraping(unittest.TestCase):
@@ -53,7 +51,7 @@ class TestLambdaScraping(unittest.TestCase):
         mock_boto3_client.return_value = mock_s3
 
         # Ejecuta la función lambda
-        respuesta = lambda_handler({}, {})
+        lambda_handler({}, {})
 
         # Verifica que requests.get fue llamado 10 veces, pero que S3 no recibió archivos
         self.assertEqual(mock_requests_get.call_count, 10)
@@ -76,7 +74,7 @@ class TestLambdaScraping(unittest.TestCase):
         mock_boto3_client.return_value = mock_s3
 
         # Ejecuta la función lambda
-        respuesta = lambda_handler({}, {})
+        lambda_handler({}, {})
 
         # Verifica que requests.get se llamó 10 veces
         self.assertEqual(mock_requests_get.call_count, 10)
