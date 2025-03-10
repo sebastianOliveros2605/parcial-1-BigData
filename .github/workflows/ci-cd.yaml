@@ -78,5 +78,4 @@ jobs:
       - name: Desplegar con Zappa
         run: |
           cd lambda1
-          zappa update scrapping
           zappa invoke scrapping "lambda_function.lambda_handler"
