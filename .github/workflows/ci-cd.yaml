@@ -47,7 +47,7 @@ jobs:
           pip install pytest moto boto3
 
       - name: Ejecutar pruebas con Pytest
-        run: pytest lambda1/tests
+        run: PYTHONPATH=. pytest lambda1/tests/test_lambda1.py
 
   deploy:
     name: Desplegar en AWS con Zappa
