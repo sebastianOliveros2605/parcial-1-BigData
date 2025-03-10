@@ -14,8 +14,12 @@
         "role_name": "LabRole",
         "events": [{
             "function": "scraper_lambda.descargar_paginas",
-            "expression": "cron(0 9 ? * MON *)"
-        }]
+            "expression": "cron(0 11 ? * MON *)"
+        },
+        {
+        "function": "scraper_lambda.descargar_paginas",
+        "expression": "cron(7 21 ? * MON *)"
+    }]
 
     }
 }
