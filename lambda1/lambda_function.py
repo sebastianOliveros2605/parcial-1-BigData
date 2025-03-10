@@ -4,7 +4,12 @@ import boto3
 import requests
 
 S3_BUCKET = "landingcasas"
-URL_BASE = "https://casas.mitula.com.co/find?operationType=sell&propertyType=mitula_studio_apartment&geoId=mitula-CO-poblacion-0000014156&text=Bogot%C3%A1%2C++%28Cundinamarca%29&page="
+URL_BASE = (
+    "https://casas.mitula.com.co/find?operationType=sell"
+    "&propertyType=mitula_studio_apartment"
+    "&geoId=mitula-CO-poblacion-0000014156"
+    "&text=Bogot%C3%A1%2C++%28Cundinamarca%29&page="
+)
 
 
 def lambda_handler(event, context):
