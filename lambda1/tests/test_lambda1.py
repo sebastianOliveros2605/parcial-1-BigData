@@ -1,5 +1,3 @@
-import os
-import sys
 import unittest
 from unittest.mock import MagicMock, patch
 from lambda1.lambda_function import lambda_handler
