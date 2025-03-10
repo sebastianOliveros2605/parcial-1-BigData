@@ -1,7 +1,5 @@
 import csv
 import io
-from datetime import datetime
-
 import boto3
 from bs4 import BeautifulSoup
 
@@ -51,13 +49,14 @@ def extract_data_from_html(html_content):
                     "Agencia": agency,
                 }
             )
-        except Exception as e:
-            print("Error procesando un listado:", e)
+        except AttributeError as e:
+            print(f"Error procesando un listado: {e}")
 
     return data
 
 
 def procesar_html(event, context):
+    """Procesa archivos HTML desde S3, extrae datos y guarda un CSV."""
     s3 = boto3.client("s3")
     bucket_name = "landingcasas"
     output_bucket = "casas-final-bg"
@@ -67,15 +66,12 @@ def procesar_html(event, context):
     s3_object_key = record["s3"]["object"]["key"]
 
     # Extraer la carpeta (fecha) desde la clave del objeto
-    folder_name = s3_object_key.split("/")[
-        0
-    ]  # Se asume que el formato es "YYYY-MM-DD/archivo.html"
-
-    output_filename = f"{folder_name}.csv"  # Usamos la misma fecha para el CSV
+    folder_name = s3_object_key.split("/")[0]  # "YYYY-MM-DD/archivo.html"
+    output_filename = f"{folder_name}.csv"
 
     all_data = []
 
-    # Listar todos los archivos HTML en la carpeta correspondiente
+    # Listar archivos HTML en la carpeta correspondiente
     response = s3.list_objects_v2(Bucket=bucket_name, Prefix=f"{folder_name}/")
     if "Contents" not in response:
         print(f"No hay archivos en la carpeta {folder_name}")
