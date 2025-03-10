@@ -2,8 +2,7 @@ import os
 import sys
 import unittest
 from unittest.mock import MagicMock, patch
-from lambda_function import lambda_handler  # Ahora sí debería encontrarlo
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from lambda1.lambda_function import lambda_handler
 
 
 class TestLambdaScraping(unittest.TestCase):
