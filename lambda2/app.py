@@ -58,8 +58,8 @@ def extract_data_from_html(html_content):
 def procesar_html(event, context):
     """Procesa archivos HTML desde S3, extrae datos y guarda un CSV."""
     s3 = boto3.client("s3")
-    bucket_name = "landingcasas"
-    output_bucket = "casas-final-bg"
+    bucket_name = "landingcasas2"
+    output_bucket = "casas-final-bg2"
 
     # Obtener la carpeta con la fecha desde el evento
     record = event["Records"][0]

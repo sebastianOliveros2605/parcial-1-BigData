@@ -12,7 +12,7 @@
         "profile_name": "default",
         "project_name": "lambda2",
         "runtime": "python3.10",
-        "s3_bucket": "zappa-qjecrf9eh",
+        "s3_bucket": "zappa-ef0b07cbi",
         "keep_warm": false,
         "apigateway_enabled": false,
         "manage_roles": false,
@@ -21,7 +21,7 @@
             {   
                 "function":"app.procesar_html",
                 "event_source": {
-                    "arn": "arn:aws:s3:::landingcasas",
+                    "arn": "arn:aws:s3:::landingcasas2",
                     "events": [
                         "s3:ObjectCreated:*"
                     ]
