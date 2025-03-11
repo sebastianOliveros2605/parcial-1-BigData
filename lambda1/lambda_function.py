@@ -3,7 +3,7 @@ from datetime import datetime
 import boto3
 import requests
 
-S3_BUCKET = "landingcasas"
+S3_BUCKET = "landingcasas2"
 URL_BASE = (
     "https://casas.mitula.com.co/find?operationType=sell"
     "&propertyType=mitula_studio_apartment"
